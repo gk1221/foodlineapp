@@ -1,0 +1,73 @@
+h1{
+    color: rgb(30, 211, 90);
+}
+
+html{
+  height:100%;
+}
+
+body{
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 0px;
+}
+
+header{
+  background-color: brown;
+  height: 50px;
+}
+
+main{
+  flex: 1;
+  height: 30px;
+}
+
+footer{
+  background-color: darkgreen;
+  height: 50px;
+}
+
+.in-col{
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.head-div{
+  display: none;
+}
+
+
+
+
+.in{
+  height: 200px;
+  width: 200px;
+  border: solid;
+  border-color:rgba(129, 81, 36, 0.253);
+  border-width: 2px;
+  
+  border-radius:10px;
+}
+
+
+
+@media (max-width: 768px) {
+    h1{
+        color: red;
+    }
+    
+  }
+  
+  @media screen and (min-width:375px) and (max-width:768px) {
+    h1{
+    color: blue;
+    }
+  }
+  
+  @media not screen and (min-width:375px){
+    h1{
+    color: yellow;
+    } 
+  }
+

@@ -1,0 +1,31 @@
+{% extends 'back.html' %}
+{% block title %} {{ post.title }} {% endblock %}
+{% block content %}
+{% load static %}
+<script src="{% static 'ckeditor/ckeditor/plugins/prism/lib/prism/prism_patched.min.js' %}"></script>
+<link rel="stylesheet" href="{% static 'prism/prism.css' %}">
+<script src="{% static 'prism/prism.js' %}"></script>
+
+
+    <h1 style="font-family:'Comic Sans MS'">{{ post.title}}</h1>
+    <hr size="3px" align="center" width="100%">
+    <p>
+        {{ post.creator}}
+        <br>
+        {{ post.time_create}}
+        
+        {% if request.user.is_authenticated %}
+        <a class="btn btn-success" href="edit/" role="button">修改</a>
+        <a class="btn btn-danger" href="delete/" role="button">刪除</a>
+        {% endif %}
+    </p>
+
+
+
+<div align="left" style="margin:20px 20px 0px 50px;min-height:300px">
+    {{post.body|safe}}
+</div>
+
+
+<a class="btn btn-secondary" href="/text">返回</a>
+{% endblock %}

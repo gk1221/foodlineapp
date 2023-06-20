@@ -1,0 +1,250 @@
+.all-card {
+    margin: 0px 5px 15px 5px;
+    min-width: 1080px;
+    max-width: 1080px;
+}
+
+.all-card a {
+    color: rgba(245, 178, 91, 0.842);
+}
+
+.all-card a:hover {
+    color: rgba(255, 142, 89, 0.856);
+}
+
+.all-card div {}
+
+.textspace {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.selection {}
+
+.textlist {}
+
+.li-filter {
+    border-radius: 20px;
+}
+
+.cardlist {
+    display: none;
+    /*讓div並排*/
+    text-align: center;
+    height: auto;
+    border-radius: 10px;
+    background: linear-gradient(45deg, rgba(73, 229, 240, 0.411), rgba(150, 17, 228, 0.205));
+    line-height: 50px;
+    width: auto;
+    margin: 0px 4px 18px 5px;
+}
+
+.diary-card {
+    width: 400px;
+    background-color: transparent;
+}
+
+.hvr-grow {
+    -webkit-transform: perspective(10px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 10px rgba(214, 166, 166, 0.404);
+    -webkit-transition-duration: 0.8s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+}
+
+.hvr-grow:hover,
+.hvr-grow:focus,
+.hvr-grow:active {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+.all-card2 {
+    display: none;
+}
+
+.all-card2-in-div {
+    line-height: 60px;
+    /*
+    border-bottom-color: rgba(241, 145, 164, 0.575);
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+*/
+    margin: 10px 0px 10px 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: var(--main-word);
+}
+
+#text-tit {
+    text-decoration: none;
+    line-height: 26px;
+    font-size: 36px;
+    color: transparent;
+    -webkit-text-stroke: 1px #fff;
+}
+
+.cardshow {
+    display: inline-block;
+}
+
+.cardclose {
+    display: none;
+}
+
+:root {
+    --main-word: beige;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.mybtn {
+    margin-bottom: 20px;
+}
+
+body {
+    margin: 0;
+    display: grid;
+    /*使用grid排版*/
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), transparent), url('photo/background.png');
+    background-position: center;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    position: relative;
+}
+
+nav {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    max-height: 60px;
+    min-height: 60px;
+}
+
+.nav-title {
+    font-size: 40px;
+    color: var(--main-word);
+    text-decoration: none;
+}
+
+nav ul {
+    flex: 1;
+    text-align: right;
+    padding-right: 20px 30px;
+}
+
+nav ul li {
+    display: inline;
+    list-style: none;
+    margin: 40px;
+}
+
+nav ul li a {
+    color: var(--main-word);
+    font-size: 20px;
+    text-decoration: none;
+    position: relative;
+}
+
+nav ul li a:hover,
+.nav-title:hover,
+.active {
+    color: rgb(248, 203, 143);
+}
+
+nav ul li a::after {
+    content: '';
+    width: 0;
+    height: 3px;
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    transition: width 0.2s;
+}
+
+nav ul li a:hover::after {
+    width: 50%;
+}
+
+.home-alb {
+    width: 600px;
+    margin: 50px 0px 50px 0px;
+}
+
+.d-block {
+    width: 600px;
+    height: 400px;
+}
+
+h1,
+p,
+h2,
+h5,
+a,
+tt,
+label,
+span,
+tbody {
+    color: var(--main-word);
+}
+
+.main {
+    /* 留出header及footer區塊的空間 */
+    min-height: 690px;
+    margin: 50px 80px 80px 80px;
+    grid-row-start: 2;
+    /*欄位從第二條橫線開始*/
+    grid-row-end: 3;
+    /*欄位從第三條橫線結束*/
+}
+
+.footer {
+    /* 設定footer的高度 */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #79ccb746;
+    grid-row-start: 3;
+    /*欄位從第二條橫線開始*/
+    grid-row-end: 4;
+    /*欄位從第三條橫線結束*/
+    max-height: auto;
+    min-height: 60px;
+    min-width: auto;
+}
+
+.footer-text {
+    margin: 5px 0px 5px 5px;
+    float: left;
+    vertical-align: middle;
+}
+
+.footer-ul li {
+    float: right;
+    margin-top: 20px;
+    margin-right: 100px;
+}
+
+.footer a {
+    color: antiquewhite;
+    font-size: large;
+}
+
+#menu li {
+    display: inline;
+}
+
+#text-table  td{
+    
+    border: yellow 1px solid;
+}

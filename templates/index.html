@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% include "header.html" %}
+
+
+
+
+<form action="/output/" method="GET" style="margin-top:100px">
+
+    <div class="input-group mb-3" style="width:300px">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">地區</span>
+        </div>
+        <input type="text" name="area" value="高雄市" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+    </div>
+
+    <div class="input-group mb-3" style="width:300px">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">種類</span>
+        </div>
+        <input type="text" name="catagory" value="火鍋" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+    </div>
+
+
+    <input class="btn btn-outline-primary" style="position:relative;top:10px" type="submit" value="送出">
+</form>
+
+
+{% include "footer.html" %}
+
+{% endblock  %}

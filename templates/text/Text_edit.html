@@ -1,0 +1,48 @@
+{% extends 'back.html' %}
+{% block title %} {{title}} {% endblock %}
+{% block content %}
+
+
+{% load static %}
+
+
+<script src="{% static 'ckeditor/ckeditor/plugins/prism/lib/prism/prism_patched.min.js' %}"></script>
+<link rel="stylesheet" href="{% static 'prism/prism (2).css' %}">
+<script src="{% static 'prism/prism (2).js' %}"></script>
+
+
+<h1 style="font-weight:bold;">修改</h1>
+<p >
+  建立者:{{creator}}
+  <br>
+  上次修改時間:{{time_create}}    <a class="btn btn-secondary" href="javascript:history.back()">返回</a>
+</p>
+<!--
+        <textarea name="editor1"></textarea>
+        <script>
+            CKEDITOR.replace( 'editor1' , {uiColor: '#9AB003'});
+        </script>
+
+
+-->
+
+
+
+<div align="left" style="margin:10px 20px 10px 20px">
+    <form class="form-textedit"  method="POST" >
+        {% csrf_token %}
+
+        {{ form.media }}
+        
+        {{ form.as_p }}
+
+
+
+        <input align="center" class="btn btn-success" type="submit" value="儲存" />
+    </form>
+</div>
+
+
+
+
+{% endblock %}

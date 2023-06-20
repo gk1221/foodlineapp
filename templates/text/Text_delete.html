@@ -1,0 +1,27 @@
+{% extends 'back.html' %}
+{% block title %} 確定刪除? {% endblock %}
+{% block content %}
+
+
+{% load static %}
+
+
+<script src="{% static 'ckeditor/ckeditor/plugins/prism/lib/prism/prism_patched.min.js' %}"></script>
+<link rel="stylesheet" href="{% static 'prism/prism (2).css' %}">
+<script src="{% static 'prism/prism (2).js' %}"></script>
+
+<h3>是否確定刪除以下文章?</h3>
+<hr size="3px" align="center" width="100%">
+
+<h1>{{ obj.title }}</h1>
+{{ obj.body|safe}}
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <input class="btn btn-success" type="submit" value="確定" />
+    <a class="btn btn-warning" href="javascript:history.back()">取消</a>
+</form>
+
+
+
+{% endblock %}

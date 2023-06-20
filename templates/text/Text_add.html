@@ -1,0 +1,45 @@
+{% extends 'back.html' %}
+{{% block title %} 新增文章 {% endblock %}
+{% block content %}
+
+
+
+
+{% load static %}
+
+<script src="{% static 'ckeditor/ckeditor/plugins/prism/lib/prism/prism_patched.min.js' %}"></script>
+<link rel="stylesheet" href="{% static 'prism/prism.css' %}">
+<link  href="{% static 'prism/prism.js' %}">
+
+
+
+
+<div>
+    <h1>新增文章</h1>
+    <p>
+        作者:{{ request.user}}
+        <br>
+    <a class="btn btn-secondary" href="/text">放棄</a>    
+    </p>
+
+    <div align="left" style="margin:10px 20px 10px 20px">
+        <form class="form-textedit"  method="POST" >
+            {% csrf_token %}
+            {{ form.media }}        
+            {{ form.as_p }}
+            <input align="center" class="btn btn-success" type="submit" value="儲存" />
+        </form>
+    </div>    
+</div>
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

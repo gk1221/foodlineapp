@@ -1,0 +1,37 @@
+{% extends 'back.html' %}
+{{% block title %} 測試場 {% endblock %}
+{% block content %}
+
+{% load static %}
+<script src="{% static 'prism/myjs.js' %}"></script>
+
+
+
+
+
+<div id='div1' style="align-item:center;width:300px; height:50px; border-width:3px; border-style:dashed;border-radius:10px;">
+    222
+</div>
+<a class="btn btn-primary " onclick="tf2()" role="button">新增</a>
+
+
+<br>
+
+
+
+
+<button class="test-ani">开始动画</button>
+<p>默认情况下，所有 HTML 元素的位置都是静态的，并且无法移动。如需对位置进行操作，记得首先把元素的 CSS position 属性设置为 relative、fixed 或 absolute。</p>
+<div id="div2" style="align:center;background:#98bf21;height:0px;width:0px;">
+</div>
+
+
+
+
+<div class="hvr-grow">
+    GROW
+</div>
+
+
+
+{% endblock %}

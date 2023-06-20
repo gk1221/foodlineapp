@@ -1,0 +1,73 @@
+{% extends 'back.html' %} 
+{% block title %} 文章列表 {% endblock %} 
+{% block content %} 
+{% load static %}
+
+<div class="textspace">
+    <div class="selection">
+        {% for i in grp_list %}
+        <ul>
+            <li class="li-filter d-flex flex-row justify-content-between align-items-center">
+                <button id="{{i.tag}}-but" class="btn text-filt-but" onclick="filterSelection('{{i.tag}}')">
+                    {% if i.tag %}
+                        {{i.tag}}
+                    {% else %}
+                        Null
+                    {% endif %}
+                </button>
+                <span class="badge bg-warning rounded-pill">{{i.count}}</span>
+            </li>
+        </ul>
+        {% endfor %}
+        <ul>
+            <li class="li-filter d-flex flex-row justify-content-between align-items-center">
+                <button id="{{i.tag}}-but" class="btn text-filt-but" onclick="filterSelection('')">
+                    All
+                </button>
+                <span class="badge bg-warning rounded-pill">{{list_num}}</span>
+            </li>
+        </ul>
+        
+    </div>
+    
+    <div class="textlist">
+        <div>
+            <button class="btn mybtn btn-success"><img src="{% static 'photo/list.svg' %}" id="op1" width="40" height-"40"></button>
+            <button class="btn mybtn btn-danger"><img src="{% static 'photo/cells.svg' %}" id="op2" width="40" height-"40"></button>
+            <br> {% if request.user.is_authenticated %}
+            <a class="btn btn-primary " href="add/" role="button">新增</a> {% endif %}
+        </div>
+        <div class="all-card " align="center">
+            {% for t in text_list %}
+            <div class="cardlist hvr-grow {{t.tag}}-card cardshow" style="">
+                <div class="card-body">
+                    <p class="card-text">
+                        <a style="font-family:'Comic Sans MS', cursive, sans-serif;font-size:28px;" href="{{t.pk}}/">
+                            {{t.title}}
+                        </a>
+                        <br> {% if t.tag %} #{{t.tag}}
+                        <br> {% endif %} {{t.time_create}}
+                    </p>
+                </div>
+            </div>            
+            {% endfor %}
+        </div>
+        
+        <div class="all-card2">
+            {% for t in text_list %}
+            <div class="all-card2-in-div">
+                <div>
+                    <a id="text-tit" href="{{t.pk}}/">{{t.title}}        </a>
+                    <a style="padding:20px">      作者:{{t.creator}}</a>
+                </div>
+                <div style="margin:0 10px 0 10px;">
+                    {{t.time_create}}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

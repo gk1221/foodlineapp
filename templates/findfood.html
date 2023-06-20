@@ -1,0 +1,33 @@
+{% extends 'back.html' %}
+{% block title %} 找找食物 {% endblock %}
+{% block content %}
+
+{% load static %}
+
+
+
+<form action="/output/" method="GET" style="margin-top:80px" >
+    <div class="input-group mb-3" style="width:300px">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">地區</span>
+        </div>
+        <input id="area-form" type="text" name="area" value="高雄市" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+    </div>
+
+
+    <div class="input-group mb-3" style="width:300px">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">種類</span>
+        </div>
+        <input id="catagory-form" type="text" name="catagory" value="火鍋" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+    </div>
+
+
+    <input  class="btn btn-outline-primary" style="top:10px" type="submit" value="送出">
+</form>
+
+<button id="btnfood" class="btn btn-outline-info" type="button">送出</button>
+
+
+
+{% endblock %}

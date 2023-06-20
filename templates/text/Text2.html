@@ -1,0 +1,89 @@
+{% extends 'back.html' %}
+{{% block title %} 文章列表 {% endblock %}
+{% block content %}
+{% load static %}
+
+
+
+<div class="spinner-border" id="loadon" role="status">
+                    <span class="visually-hidden">Loading...</span>
+</div>
+
+<div class="textspace">
+    <div class="selection">
+    
+        <ol class="list-group list-group-numbered">
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+            <div class="fw-bold">Subheading</div>
+            Cras justo odio
+            </div>
+            <span class="badge bg-primary rounded-pill">14</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+            <div class="fw-bold">Subheading</div>
+            Cras justo odio
+            </div>
+            <span class="badge bg-primary rounded-pill">14</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+            <div class="fw-bold">Subheading</div>
+            Cras justo odio
+            </div>
+            <span class="badge bg-primary rounded-pill">14</span>
+        </li>
+        </ol>
+    </div>
+
+    <div class="textlist">
+            <div style="min-width:100px;padding=0px" >
+                <button class="btn btn-success"><img src="{% static 'photo/list.svg' %}" id="op1" width="40" height-"40">
+                <button class="btn btn-danger"><img src="{% static 'photo/cells.svg' %}" id="op2" width="40" height-"40">
+            </div>
+
+            <div class="all-card" align="center">
+            {% for t in text_list %}
+
+                <script type="text/javascript">
+                    var line = {{forloop.counter0}};
+                    if (line%9==4 || line%9==0 ){
+                        document.write("<br>");
+                    }    　      
+                </script>    
+                <div class="card hvr-grow"  style="line-height:50px;width: auto;margin:0px 3px 25px ">
+                    <div class="card-body">
+                        <p class="card-text">
+                            <a style="font-family:'Comic Sans MS', cursive, sans-serif;font-size:28px;color:rgba(64, 189, 238, 0.973);" href="{{t.pk}}/">{{t.title}}</a>
+                            <br>
+                            {{t.time_create}}
+                        </p>
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+
+            <div class="all-card2">
+            {% for t in text_list %}    
+                <div class="all-card2-in-div">
+                    
+                        <div style="margin:0 50px 0 50px;width:40%;text-align:left;">                
+                            <a style="font-family:'Comic Sans MS', cursive, sans-serif;font-size:28px;color:rgba(64, 189, 238, 0.973);" href="{{t.pk}}/">{{t.title}}</a>
+                            作者:{{t.creator}}                
+                        </div>            
+                        <div style="margin:0 50px 0 50px;">
+                            {{t.time_create}}
+                        </div>
+                </div>
+            {% endfor %}
+            </div>
+
+            {% if request.user.is_authenticated %}
+            <a class="btn btn-primary " href="add/" role="button">新增</a>
+            {% endif %}
+
+    </div>
+</div>
+
+{% endblock %}

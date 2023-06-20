@@ -1,0 +1,63 @@
+{% extends 'back.html' %}
+{{% block title %} 文章列表 {% endblock %}
+{% block content %}
+{% load static %}
+
+
+
+
+
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static 'test.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+    <script src="{% static 'ckeditor5/build/ckeditor.js' %}"></script>
+
+    <h1>Classic editor</h1>
+
+``  <form class="form-textedit"  method="POST" >
+        {% csrf_token %}
+        <div id="editor">
+            <p>This is some sample content.</p>
+        </div>
+            
+        <input align="center" class="btn btn-success" type="submit" value="儲存" />
+    </form>
+    
+    
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor'), {
+                toolbar: {
+                    items: ['alignment', 'blockQuote', 'bold', 'codeBlock', 'selectAll','|',
+                        'undo', 'redo', 'fontBackgroundColor', 'fontColor', 'fontFamily', 'fontSize', 'heading', '-',
+                        'imageUpload','uploadImage', 'ckfinder','indent', 'outdent', 'italic','|',
+                        'link', 'numberedList', 'bulletedList', 'mediaEmbed', 'sourceEditing', 'insertTable',
+                    ],
+                    shouldNotGroupWhenFull: true
+                },
+                image: {
+                    toolbar: [ 'toggleImageCaption', 'imageTextAlternative' ]
+                },
+                
+                ckfinder: {
+                    // Open the file manager in the pop-up window.
+                    openerMethod: 'popup'
+                }
+
+
+            })
+            .then(editor => {
+                console.log(Array.from(editor.ui.componentFactory.names()));
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,5 @@
+media/photo
+media/uploads
+media
+*.pyc
+db.sqlite3
